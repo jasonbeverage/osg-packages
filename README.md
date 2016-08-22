@@ -1,2 +1,3 @@
-# osg-packages
-OpenSceneGraph packaging
+# OpenSceneGraph packaging
+
+FPM based packaging for OpenSceneGraph
