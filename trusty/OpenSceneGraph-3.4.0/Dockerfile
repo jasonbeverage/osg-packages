@@ -25,8 +25,8 @@ RUN cp packaging/ld.so.conf.d/openscenegraph.conf /tmp/osg/etc/ld.so.conf.d/open
 
 COPY ./after_install.sh after_install.sh
 
-RUN fpm -s dir -t deb -n openscenegraph_3.4.0_amd64.deb -v 3.4.0 -C /tmp/osg -p openscenegraph_3.4.0_amd64.deb --after-install after_install.sh -d "freeglut3-dev" -d "libjpeg-dev" -d "libtiff5-dev" -d "libpng12-dev" -d "libcurl4-openssl-dev"
+RUN fpm -s dir -t deb -n openscenegraph -v 3.4.0 -C /tmp/osg -p openscenegraph_3.4.0_amd64.deb --after-install after_install.sh -d "freeglut3-dev" -d "libjpeg-dev" -d "libtiff5-dev" -d "libpng12-dev" -d "libcurl4-openssl-dev"
 
-COPY ./publish.sh /publish.sh
+COPY ./publish.sh publish.sh
 
 CMD [ "/publish.sh" ]
