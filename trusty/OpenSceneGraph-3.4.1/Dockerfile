@@ -15,7 +15,7 @@ RUN apt-get -y update && apt-get -y install \
 
 RUN gem install fpm
 
-RUN git clone https://github.com/openscenegraph/OpenSceneGraph.git && cd OpenSceneGraph && git checkout OpenSceneGraph-3.4.0
+RUN git clone https://github.com/openscenegraph/OpenSceneGraph.git && cd OpenSceneGraph && git checkout OpenSceneGraph-3.4.1
 WORKDIR OpenSceneGraph
 RUN cmake -DCMAKE_BUILD_TYPE=Release . && make -j2
 RUN mkdir /tmp/osg
@@ -25,7 +25,7 @@ RUN cp packaging/ld.so.conf.d/openscenegraph.conf /tmp/osg/etc/ld.so.conf.d/open
 
 COPY ./after_install.sh after_install.sh
 
-RUN fpm -s dir -t deb -n openscenegraph -v 3.4.0 -C /tmp/osg -p openscenegraph_3.4.0_amd64.deb --after-install after_install.sh -d "freeglut3-dev" -d "libjpeg-dev" -d "libtiff5-dev" -d "libpng12-dev" -d "libcurl4-openssl-dev"
+RUN fpm -s dir -t deb -n openscenegraph -v 3.4.1 -C /tmp/osg -p openscenegraph_3.4.1_amd64.deb --after-install after_install.sh -d "freeglut3-dev" -d "libjpeg-dev" -d "libtiff5-dev" -d "libpng12-dev" -d "libcurl4-openssl-dev"
 
 COPY ./publish.sh /publish.sh
 
