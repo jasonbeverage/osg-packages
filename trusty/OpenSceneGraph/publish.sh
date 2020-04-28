@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+curl -T openscenegraph_${ENV_OSG_VERSION}_amd64.deb -u$BINTRAY_CRED "https://api.bintray.com/content/jasonbeverage/pelicanmapping/openscenegraph/${ENV_OSG_VERSION}/pool/main/m/openscenegraph/openscenegraph_${ENV_OSG_VERSION}_amd64.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
